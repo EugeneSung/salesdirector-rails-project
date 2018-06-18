@@ -1,0 +1,15 @@
+<%= form_for(salesman) do |f| %>
+
+  <div class="field"> <%= f.label :name %><br>
+  <%= f.text_field :name %></div>
+  <div class="field"><%= f.label :title, value = "Title:" %><br>
+  <%= f.text_field :title %></div>
+  <div class="field"><%= f.label :password %><br>
+  <%= f.text_field :password %></div>
+
+
+  <br>
+
+  <div class="actions"><%= f.submit 'Create Salesman', :class => 'btn btn-primary' %></div>
+
+<% end %>
