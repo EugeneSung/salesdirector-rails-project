@@ -21,7 +21,7 @@
         <% if current_salesman %>
           <a class="navbar-brand" href="<%= user_path(current_user) %>"/> <%=current_salesman.name%>'s profile </a>
         <% else %>
-          <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+          <a class="navbar-brand" href="<%= new_salesman_path %>"/>Sign Up</a>
         <%end%>
         <% if current_salesman %>
           <a class="navbar-brand" href="<%= signout_path %>" data-method="delete" />Log Out</a>
