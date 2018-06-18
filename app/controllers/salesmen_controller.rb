@@ -34,7 +34,7 @@ end
 
 def update
   respond_to do |format|
-    if @salesman.update(user_params)
+    if @salesman.update(salesman_params)
       format.html { redirect_to @salesman, notice: 'Salesman was successfully updated.' }
     else
       format.html { render :edit }
@@ -45,7 +45,7 @@ end
 def destroy
   @salesman.destroy
   respond_to do |format|
-    format.html { redirect_to frogs_url, notice: 'Salesman was successfully destroyed.' }
+    format.html { redirect_to salesmen_url, notice: 'Salesman was successfully destroyed.' }
   end
 end
 
@@ -53,7 +53,7 @@ end
 private
 
 def salesman_params
-  params.require(:salesman).permit(:name, :phone_number, :title, :password_confirmation, :admin)
+  params.require(:salesman).permit(:name, :password, :title, :password_confirmation)
 end
 def set_saleman
   @salesman = Salesman.find(params[:id])
