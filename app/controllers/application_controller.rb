@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 
   protect_from_forgery with: :exception
-  helper_method :current_salesman, :require_login
+  helper_method :current_salesman, :require_login, :logged_in?
 
   # def cart
   #   session[:cart] ||= []

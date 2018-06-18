@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  def index
+  end
   def new
     @salesman = Salesman.new
   end
