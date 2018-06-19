@@ -11,12 +11,12 @@
 
 <a href = "/">Home</a>
 <% if !logged_in? %>
-  <a href = '/salesmen/new'>Sign Up</a>
+  <a href = '<%= new_salesman_path %>'>Sign Up</a>
 <%end%>
 <% if !logged_in? %>
-  <a href = '/signin'>Log In</a>
+  <a href = '<%= signin_path %>'>Sign In</a>
 <%end%>
 <% if logged_in? %>
-  <a href = '/signout'>Log Out</a>
+  <a href="<%= signout_path %>" data-method="delete" />Sign Out</a>
 <%end%>
 </html>
