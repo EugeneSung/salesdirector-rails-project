@@ -5,6 +5,8 @@ class Salesman < ApplicationRecord
 
   has_secure_password
   validates :name, :password, presence: true
+  validates :name, uniqueness: true
+
 
 
   def emp_id
