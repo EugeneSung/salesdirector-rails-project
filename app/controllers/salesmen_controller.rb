@@ -40,6 +40,7 @@ def update
     if @salesman.update(salesman_params)
       format.html { redirect_to @salesman, notice: 'Salesman was successfully updated.' }
     else
+      flash[:error] = @salesman.errors.full_messages.to_sentence
       format.html { render :edit }
     end
   end
