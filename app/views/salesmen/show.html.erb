@@ -3,4 +3,5 @@
 <%= render partial: "salesman", locals: {salesman: @salesman} %>
 <% if logged_in? %>
   <p><%= link_to "Edit Salesman", edit_salesman_path(@salesman) %></p>
+  <p><%= link_to "Add Customer", new_customer_path %></p>
 <% end %>

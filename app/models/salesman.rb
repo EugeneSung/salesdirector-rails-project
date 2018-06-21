@@ -8,7 +8,7 @@ class Salesman < ApplicationRecord
 
 
   def emp_id
-    "sales_#{self.id}"
+    "salesman_#{self.id}"
   end
 
 end

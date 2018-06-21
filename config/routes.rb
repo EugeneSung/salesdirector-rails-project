@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'sessions#index'
-  post '/salesmen/:id', to: 'salesmen#show'
   resources :salesmen
   resources :customers
 

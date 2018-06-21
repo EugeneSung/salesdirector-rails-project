@@ -1,0 +1,23 @@
+<ul>
+
+  <li>
+    <%= select_tag "salesman[]", options_for_select(Salesman.all.collect{|x| [x.name,x.id]}), {:multiple => :multiple, :size => 10} %>
+  </li>
+  <li>
+    Customer Number: <%= customer.cus_id %>
+  </li>
+  <li>
+    Name: <%= customer.name %>
+  </li>
+  <li>
+    Address: <%= customer.address %>
+  </li>
+  <li>
+    Phone Number: <%= customer.phone_number %>
+  </li>
+
+
+
+
+
+</ul>
