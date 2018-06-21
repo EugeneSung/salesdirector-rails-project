@@ -10,8 +10,10 @@
 
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-
+<body>
+  <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>" style="color:red;"><%= value %></div>
+        <% end %>
 <%= yield%>
 |
 <%= link_to 'Home', root_path %>
@@ -27,5 +29,5 @@
 <% if logged_in? %>
   <%= link_to "#{current_salesman.name}'s profile", salesman_path(current_salesman) %>
 <%end%>
-
+</body>
 </html>

@@ -24,12 +24,15 @@ def create
 
 
   @salesman = Salesman.new(salesman_params)
- if @salesman.save
-   session[:salesman_id] = @salesman.id
-   redirect_to salesman_path(@salesman)
- else
-   render :new
- end
+  if(@salesman.valid? and @salesman.save)
+        flash[:notice] = "Account created successfully"
+        session[:salesman_id] = @salesman.id
+        redirect_to salesman_path(@salesman)
+    else
+        flash[:error] = @salesman.errors.full_messages.to_sentence
+        redirect_to action: "new"
+    end
+
 end
 
 def update
