@@ -55,7 +55,7 @@ private
 def salesman_params
   params.require(:salesman).permit(:name, :phone_number, :password, :title, :password_confirmation)
 end
-def set_saleman
+def set_salesman
   @salesman = Salesman.find(params[:id])
 end
 

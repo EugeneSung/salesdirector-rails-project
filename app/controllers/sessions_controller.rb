@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
 def create
 
-  @salesman = User.find_by(name: params[:name])
+  @salesman = Salesman.find_by(name: params[:name])
   if @salesman && @salesman.authenticate(params[:password])
     session[:salesman_id] = @salesman.id
     redirect_to salesman_path(@salesman)

@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
 
   private
+
   def current_salesman
    @current_salesman ||= Salesman.find_by(id: session[:salesman_id]) if session[:salesman_id]
   end
