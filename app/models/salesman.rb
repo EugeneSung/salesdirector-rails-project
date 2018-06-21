@@ -5,4 +5,10 @@ class Salesman < ApplicationRecord
 
   has_secure_password
   validates :name, :password, presence: true
+
+
+  def emp_id
+    "sales_#{self.id}"
+  end
+
 end
