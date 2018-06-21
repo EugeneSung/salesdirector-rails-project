@@ -50,7 +50,7 @@ end
 private
 
 def customer_params
-  params.require(:customer).permit(:name, :phone_number, :address)
+  params.require(:customer).permit(:name, :phone_number, :address, :salesman_id)
 end
 def set_customer
   @customer = Customer.find(params[:id])
