@@ -30,19 +30,19 @@ end
 
 def update
   respond_to do |format|
-    if @salesman.update(salesman_params)
-      format.html { redirect_to @salesman, notice: 'Salesman was successfully updated.' }
+    if @customer.update(customer_params)
+      format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
     else
-      flash[:error] = @salesman.errors.full_messages.to_sentence
+      flash[:error] = @customer.errors.full_messages.to_sentence
       format.html { render :edit }
     end
   end
 end
 
 def destroy
-  @salesman.destroy
+  @customer.destroy
   respond_to do |format|
-    format.html { redirect_to salesmen_url, notice: 'Salesman was successfully destroyed.' }
+    format.html { redirect_to customer_url, notice: 'Customer was successfully destroyed.' }
   end
 end
 

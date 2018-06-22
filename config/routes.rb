@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root 'sessions#index'
-  resources :salesmen
+  resources :salesmen do
+    resources :customers
+  end
   resources :customers
+  resources :invoices
+  resources :salesorders
 
   resource :sessions, only: [:new]
-  # delete '/signout', to: 'sessions#destroy'
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
