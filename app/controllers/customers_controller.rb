@@ -42,7 +42,7 @@ end
 def destroy
   @customer.destroy
   respond_to do |format|
-    format.html { redirect_to customer_url, notice: 'Customer was successfully destroyed.' }
+    format.html { redirect_to salesman_url(current_salesman), notice: 'Customer was successfully destroyed.' }
   end
 end
 
