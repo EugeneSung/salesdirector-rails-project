@@ -1,7 +1,10 @@
 <h1>Salesman Info</h1>
 
 <%= render partial: "salesman", locals: {salesman: @salesman} %>
+
 <% if logged_in? %>
-  <p><%= link_to "Edit Salesman", edit_salesman_path(@salesman) %></p>
-  <p><%= link_to "Add Customer", new_salesman_customer_path(@salesman) %></p>
+  <p>
+    <%= link_to "New Customer", new_salesman_customer_path(@salesman) %> |
+    <%= link_to "New Salesorder", new_salesorder_path %>
+  </p>
 <% end %>

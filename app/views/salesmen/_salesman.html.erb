@@ -13,11 +13,14 @@
   <li>
     Phone Number: <%= salesman.phone_number %>
   </li>
-    <li>
-      <h4>Customer List</h4>
-        <% salesman.customers.each do |customer|%>
-          <ol><%= link_to "#{customer.id}. #{customer.name}", customer_path(customer) %></ol>
-        <%end%>
-    </li>
+  <% if logged_in? %>
+    <p><%= link_to "Edit Salesman", edit_salesman_path(@salesman) %></p>
+  <% end %>
+  <li>
+    <h4>Customer List</h4>
+      <% @salesman.customers.each do |customer|%>
+        <ol><%= link_to "#{customer.id}. #{customer.name}", customer_path(customer) %></ol>
+      <%end%>
+  </li>
 
 </ul>
