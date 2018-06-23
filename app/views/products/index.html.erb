@@ -1,9 +1,9 @@
 <h3>Product Lists</h3>
-<%= @products.each do |product| %>
-  <li><%=product.id %>.
-    <ol><%= render partial: "product", locals: { product:  product } %></ol>
-  </li>
-<%end%>
+<% @products.each do |product| %>
+
+  <ol>  <%= render partial: "product", locals: { product:  product } %></ol>
+
+<% end %>
 <% if logged_in? %>
   <p><%= link_to "Add Product", new_product_path %> |
 <% end %>

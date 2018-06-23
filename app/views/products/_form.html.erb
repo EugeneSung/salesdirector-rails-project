@@ -1,15 +1,14 @@
 <%= form_for(product) do |f| %>
 
-  <div class="field"> <%= f.label :name %><br>
+  <div class="field"> <%= f.label :name %><br />
   <%= f.text_field :name %></div>
-  <div class="field"><%= f.label :description, value = "Description:" %><br>
+  <div class="field"><%= f.label :description, value = "Description:" %><br />
   <%= f.text_field :description %></div>
   <div class="field"><%= f.label :price, value = "Price:" %><br>
   <%= f.text_field :price %></div>
-  <div class="field"><%= f.label :inventory, value = "Inventory:" %><br>
+  <div class="field"><%= f.label :inventory, value = "Inventory:" %><br />
   <%= f.text_field :inventory %></div>
-  <br>
-
+  <br />
   <div class="actions"><%= f.submit 'Submit', :class => 'btn btn-primary' %></div>
 
 <% end %>
