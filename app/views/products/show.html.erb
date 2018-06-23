@@ -1,0 +1,8 @@
+<h1>Product Info</h1>
+
+<%= render partial: "product", locals: {product: @product} %>
+<% if logged_in? %>
+  <p><%= link_to "Add Product", new_product_path %> |
+     <%= link_to "Edit Product", edit_product_path(@product) %> |
+     <%= link_to "Delete Product", product_path(@product), method: :delete %></p>
+<% end %>

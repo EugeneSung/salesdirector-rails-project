@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :invoices
   resources :salesorders
+  resources :products
 
   resource :sessions, only: [:new]
   get '/signin', to: 'sessions#new', as: 'signin'
