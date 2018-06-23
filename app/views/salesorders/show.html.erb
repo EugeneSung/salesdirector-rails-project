@@ -1,0 +1,11 @@
+<h1>Salesorder Info</h1>
+
+<%= render partial: "salesorder", locals: {salesorder: @salesorder} %>
+
+<% if logged_in? %>
+  <p>
+    <%= link_to "New Salesorder", new_salesorder_path %> |
+    <%= link_to "Edit Salesorder", edit_salesorder_path(@salesorder) %> |
+    <%= link_to "Delete Salesorder", salesorder_path(@salesorder), method: :delete %> |
+  </p>
+<% end %>
