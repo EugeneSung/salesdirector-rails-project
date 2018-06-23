@@ -1,5 +1,5 @@
 
-  <ul><h4><%= product.name %></h4></ul>
+  <ul><h4><%= link_to product.name, product_url(product) %></h4></ul>
   <ul>Description: <%= product.description %></ul>
   <ul>
     Price: <%= product.price %>
