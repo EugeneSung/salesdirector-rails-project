@@ -41,10 +41,10 @@ class SalesordersController < ApplicationController
   end
 
   def destroy
-  @salesorder.customer_id = params[:customer_id]
+    #binding.pry
   @salesorder.destroy
   respond_to do |format|
-    format.html { redirect_to customer_salesorder_path(@salesorder.customer), notice: 'Order was successfully destroyed.' }
+    format.html { redirect_to customer_path(@salesorder.customer), notice: 'Order was successfully destroyed.' }
   end
   end
 

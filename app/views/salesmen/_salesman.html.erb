@@ -22,5 +22,16 @@
         <ol><%= link_to "#{customer.id}. #{customer.name}", customer_path(customer) %></ol>
       <%end%>
   </li>
+  <li>
+    <h4>Sales Order List</h4>
+      <% @salesman.salesorders.each do |salesorder|%>
+        <ol>
+          <%= link_to "#{salesorder.id}. ##{salesorder.order_number}", customer_salesorder_path(salesorder) %> - 
+          <%= link_to "#{salesorder.customer.name}", customer_path(salesorder.customer) %>
+          <br />
+
+        </ol>
+      <%end%>
+  </li>
 
 </ul>
