@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'sessions#index'
-  resources :salesmen do
-    resources :customers
+  resources :salesmen
+  resources :customers do
+    resources :salesorders
   end
-  resources :customers
+
+
   resources :invoices
   resources :salesorders
   resources :products

@@ -4,8 +4,8 @@
 
 <% if logged_in? %>
   <p>
-    <%= link_to "New Salesorder", new_salesorder_path %> |
-    <%= link_to "Edit Salesorder", edit_salesorder_path(@salesorder) %> |
-    <%= link_to "Delete Salesorder", salesorder_path(@salesorder), method: :delete %> |
+    <%= link_to "New Salesorder", new_customer_salesorder_path(@salesorder.customer) %> |
+    <%= link_to "Edit Salesorder", edit_customer_salesorder_path(@salesorder) %> |
+    <%= link_to "Delete Salesorder", customer_salesorder_path(@salesorder), method: :delete %> |
   </p>
 <% end %>

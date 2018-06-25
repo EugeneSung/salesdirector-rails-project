@@ -2,8 +2,8 @@
 
 <%= render partial: "customer", locals: {customer: @customer} %>
 <% if logged_in? %>
-  <p><%= link_to "Add Customer", new_salesman_customer_path(@customer.salesman) %> |
-     <%= link_to "Edit Customer", edit_salesman_customer_path(@customer.salesman) %> |
-     <%= link_to "Delete Customer", salesman_customer_path(@customer), method: :delete %></p>
-  <p><%= link_to "Add Salesorder", new_salesorder_path %></p>
+  <p><%= link_to "Add Customer", new_customer_path(@customer.salesman) %> |
+     <%= link_to "Edit Customer", edit_customer_path(@customer.salesman) %> |
+     <%= link_to "Delete Customer", customer_path(@customer), method: :delete %></p>
+  <p><%= link_to "Add Salesorder", new_customer_salesorder_path(@customer) %></p>
 <% end %>
