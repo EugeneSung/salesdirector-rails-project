@@ -1,13 +1,20 @@
 <%= form_for(salesorder) do |f| %>
 
-  <div class="field"><%= f.label :salesman_id %><br>
-  <%= f.collection_select(:salesman_id, Salesman.all, :id, :name, {:selected => current_salesman.id} ) %>
-  <div class="field"><%= f.label :customer_id %><br>
+  <div class="field"><%= f.label :salesman_id, value: "Salesman: " %>
+  <%= f.collection_select(:salesman_id, Salesman.all, :id, :name, {:selected => salesorder.salesman_id} ) %>
+  <div class="field"><%= f.label :customer_id, value: "Customer: " %>
   <%= f.collection_select(:customer_id, Customer.all, :id, :name, {:selected => salesorder.customer_id} ) %>
-  <div class="field"> <%= f.label :order_number %><br>
-  <%= f.text_field :order_number %></div>
+  <div class="field"> <%= f.label :order_number, value: "Order Number: " %>
+  <%= f.number_field :order_number %></div>
   <br />
 
+  <%= f.label :orders, value: "Add Orders: " %><br />
+  <%= f.fields_for :orders do |order| %>
+      Product: <%= order.collection_select(:product_ids, Product.all, :id, :name) %> -
+      Quantity: <%= order.number_field :quantity %>
+    <% end %>
+  <br /><br />
   <div class="actions"><%= f.submit 'Submit', :class => 'btn btn-primary' %></div>
+<br /><br />
 
 <% end %>

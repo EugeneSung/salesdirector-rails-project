@@ -10,6 +10,9 @@
   <li>
     Salesorder Number: <%= salesorder.order_number %>
   </li>
-
-
+  <% salesorder.orders.each do |order| %>
+  <li>
+    <%= order.product %> - <%= order.quantity %>
+  </li>
+  <%end%>
 </ul>

@@ -8,6 +8,7 @@ class SalesordersController < ApplicationController
   def new
     @salesorder = Salesorder.new
     @salesorder.customer_id = params[:customer_id]
+    @salesorder.orders.build
     #binding.pry
 
   end
@@ -16,18 +17,18 @@ class SalesordersController < ApplicationController
   def edit
   end
   def create
+      @salesorder = Salesorder.new(salesorder_params)
 
+        if(@salesorder.valid? and @salesorder.save)
+              flash[:notice] = "Order created successfully"
+              redirect_to salesorder_path(@salesorder)
+        else
+              flash[:error] = @salesorder.errors.full_messages.to_sentence
+              redirect_to action: "new"
+        end
 
-  @salesorder = Salesorder.new(salesorder_params)
-  if(@salesorder.valid? and @salesorder.save)
-        flash[:notice] = "Order created successfully"
-        redirect_to salesorder_path(@salesorder)
-    else
-        flash[:error] = @salesorder.errors.full_messages.to_sentence
-        redirect_to action: "new"
     end
 
-  end
 
   def update
   respond_to do |format|
@@ -38,6 +39,15 @@ class SalesordersController < ApplicationController
       format.html { render :edit }
     end
   end
+
+
+
+
+
+
+
+
+
   end
 
   def destroy
