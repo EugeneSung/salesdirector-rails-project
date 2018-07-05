@@ -10,9 +10,13 @@
   <li>
     Salesorder Number: <%= salesorder.order_number %>
   </li>
-  <% salesorder.orders.each do |order| %>
-  <li>
-    <%= order.product %> - <%= order.quantity %>
-  </li>
+  <li>Order List</li>
+  <% salesorder.product_salesorders.each do |product_salesorder| %>
+  <ul>
+
+    <%= product_salesorder.product.name %> - <%= product_salesorder.quantity %> = $<%= product_salesorder.product.price * product_salesorder.quantity%>
+  </ul>
   <%end%>
+  <br />
+  <ul>Total : <%= salesorder.sum %> </ul>
 </ul>

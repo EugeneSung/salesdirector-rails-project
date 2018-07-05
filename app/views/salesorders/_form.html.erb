@@ -1,18 +1,26 @@
 <%= form_for(salesorder) do |f| %>
-
-  <div class="field"><%= f.label :salesman_id, value: "Salesman: " %>
-  <%= f.collection_select(:salesman_id, Salesman.all, :id, :name, {:selected => salesorder.salesman_id} ) %>
-  <div class="field"><%= f.label :customer_id, value: "Customer: " %>
-  <%= f.collection_select(:customer_id, Customer.all, :id, :name, {:selected => salesorder.customer_id} ) %>
   <div class="field"> <%= f.label :order_number, value: "Order Number: " %>
-  <%= f.number_field :order_number %></div>
+  <%= f.number_field :order_number %></div></div>
   <br />
+  <div class="field"><%= f.label :salesman_id, value: "Salesman: " %>
+  <%= f.collection_select(:salesman_id, Salesman.all, :id, :name, {:selected => salesorder.salesman_id} ) %></div>
 
-  <%= f.label :orders, value: "Add Orders: " %><br />
-  <%= f.fields_for :orders do |order| %>
-      Product: <%= order.collection_select(:product_ids, Product.all, :id, :name) %> -
-      Quantity: <%= order.number_field :quantity %>
-    <% end %>
+
+  <div class="field"><%= f.label :customer_id, value: "Customer: " %>
+  <%= f.collection_select(:customer_id, Customer.all, :id, :name, {:selected => salesorder.customer_id} ) %></div>
+
+  <h3>Orders</h3>
+
+
+  <div class="field"><%= f.fields_for :product_salesorders do |order| %>
+    <%= order.hidden_field(:salesorder_id, :value => salesorder.id)%>
+    <p><%= order.label :product_id, value: "Product: " %>
+      <%= order.collection_select(:product_id, Product.all, :id, :name) %> -
+      <%= order.label :quantity, value: "Quantity: " %>
+      <%= order.number_field :quantity %>
+    </p>
+  <% end %>
+</div>
   <br /><br />
   <div class="actions"><%= f.submit 'Submit', :class => 'btn btn-primary' %></div>
 <br /><br />

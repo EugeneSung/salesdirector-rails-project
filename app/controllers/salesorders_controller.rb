@@ -8,20 +8,23 @@ class SalesordersController < ApplicationController
   def new
     @salesorder = Salesorder.new
     @salesorder.customer_id = params[:customer_id]
-    @salesorder.orders.build
+    5.times{@salesorder.product_salesorders.build}
     #binding.pry
 
   end
   def show
+
+    #binding.pry
   end
   def edit
   end
   def create
+
       @salesorder = Salesorder.new(salesorder_params)
 
         if(@salesorder.valid? and @salesorder.save)
               flash[:notice] = "Order created successfully"
-              redirect_to salesorder_path(@salesorder)
+              redirect_to salesorder_url(@salesorder)
         else
               flash[:error] = @salesorder.errors.full_messages.to_sentence
               redirect_to action: "new"
@@ -62,10 +65,10 @@ class SalesordersController < ApplicationController
   private
 
   def salesorder_params
-  params.require(:salesorder).permit(:customer_id, :order_number, :salesman_id)
+    params.require(:salesorder).permit(:customer_id, :order_number, :salesman_id, product_salesorders_attributes: [:salesorder_id, :product_id, :quantity])
   end
   def set_salesorder
-  @salesorder = Salesorder.find(params[:id])
+    @salesorder = Salesorder.find(params[:id])
   end
 
 
